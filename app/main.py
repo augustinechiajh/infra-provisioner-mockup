@@ -35,8 +35,9 @@ def provision_resource(request: ProvisionRequest):
     """
     Accepts a provisioning request and triggers Terraform to create the resource.
     
-    This is the core of what some platforms do:
-    user submits a request via UI/API -> backend runs Terraform -> infra gets created
+    Accepted resource types:
+    - s3_bucket: Creates an S3 bucket in LocalStack
+    - ec2_instance: Creates an EC2 instance in LocalStack
     """
 
     # Validate resource type
