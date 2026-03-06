@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+
+  # LocalStack — simulates AWS services locally for free
+  # This is what makes the whole thing free — no real AWS account needed
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"           # All AWS services exposed on this single port
+    environment:
+      - SERVICES=s3,ec2       # Only spin up the services we need
+      - DEBUG=1
+    volumes:
+      - localstack_data:/var/lib/localstack
+
+  # Our FastAPI app
+  api:
+    build: .
+    ports:
+      - "8000:8000"           # API accessible at http://localhost:8000
+    volumes:
+      - ./terraform:/app/terraform    # Mount Terraform modules into the container
+    depends_on:
+      - localstack            # Wait for LocalStack to start before starting API
+    environment:
+      - LOCALSTACK_URL=http://localstack:4566
+
+volumes:
+  localstack_data:
