@@ -101,6 +101,6 @@ infra-provisioner/
 Ideas for extending this project:
 - Add more resource types (RDS, Lambda, VPC)
 - Add an approval workflow before provisioning
-- Add a simple HTML frontend form (like the Backstage self-service form)
+- Add a simple HTML frontend form (like Backstage self-service form)
 - Add a `/deprovision` endpoint to destroy resources
 - Store provisioning history in a database

@@ -5,7 +5,7 @@ import os
 
 app = FastAPI(
     title="Infra Provisioner",
-    description="Self-service infrastructure provisioning API — like a mini Morpheus",
+    description="Self-service infrastructure provisioning API",
     version="1.0.0"
 )
 
@@ -35,7 +35,7 @@ def provision_resource(request: ProvisionRequest):
     """
     Accepts a provisioning request and triggers Terraform to create the resource.
     
-    This is the core of what platforms like Morpheus do:
+    This is the core of what some platforms do:
     user submits a request via UI/API -> backend runs Terraform -> infra gets created
     """
 
