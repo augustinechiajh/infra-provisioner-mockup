@@ -2,9 +2,9 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [develop] # Change to main once ready
+    branches: [main] # Change to main once ready
   pull_request:
-    branches: [develop]
+    branches: [main]
 
 jobs:
   test:
