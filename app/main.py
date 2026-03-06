@@ -48,7 +48,11 @@ def provision_resource(request: ProvisionRequest):
         )
 
     # Determine which Terraform module to use based on resource type
-    module_path = f"./terraform/modules/{request.resource_type.replace('_', '/')}"
+    module_map = {
+    "s3_bucket": "./terraform/modules/s3",
+    "ec2_instance": "./terraform/modules/ec2"
+    }
+    module_path = module_map[request.resource_type]
     # e.g. s3_bucket -> terraform/modules/s3
 
     # Set Terraform variables from the request
