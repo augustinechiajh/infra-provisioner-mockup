@@ -35,8 +35,10 @@ User Request (POST /provision)
 ## Getting Started
 
 ### Prerequisites
-- Docker Desktop with WSL2 integration enabled
+- Docker and Docker Compose
 - Git
+
+> **Windows users:** Docker Desktop with WSL2 integration enabled
 
 ### Run locally
 
